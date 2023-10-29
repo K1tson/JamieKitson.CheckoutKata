@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutKata.Core.Tests", "CheckoutKata.Core.Tests\CheckoutKata.Core.Tests.csproj", "{07526825-FFC4-426A-927E-39CC38DCB89B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D18F7FBE-F360-448A-BCB2-B53470875C24} = {D18F7FBE-F360-448A-BCB2-B53470875C24}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckoutKata.Core", "CheckoutKata.Core\CheckoutKata.Core.csproj", "{D18F7FBE-F360-448A-BCB2-B53470875C24}"
 EndProject

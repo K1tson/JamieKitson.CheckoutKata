@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCase\" />
+    <ProjectReference Include="..\CheckoutKata.Core\CheckoutKata.Core.csproj" />
   </ItemGroup>
 
 </Project>
