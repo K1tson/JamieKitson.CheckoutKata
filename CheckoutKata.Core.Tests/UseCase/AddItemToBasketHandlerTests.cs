@@ -45,7 +45,7 @@ namespace CheckoutKata.Core.Tests.UseCase
         }
 
         [Fact]
-        public async Task Handler_Returns_Total_Sum_From_Basket_Multiple_Item_Result()
+        public async Task Handler_Returns_Total_Sum_From_Basket_B_Multiple_Item_Result()
         {
 
             // Arrange
@@ -79,6 +79,39 @@ namespace CheckoutKata.Core.Tests.UseCase
             // Assert
             Assert.NotNull(result);
             Assert.Equal(40, result.TotalCost);
+
+        }
+
+
+        [Fact]
+        public async Task Handler_Returns_Total_Sum_From_Basket_D_Multiple_Item_Result()
+        {
+
+            // Arrange
+            var request = new AddItemsToBasketRequest
+            {
+                BasketItems = new List<BasketItem> {
+                    new BasketItem
+                    {
+                        ItemSKU = "D",
+                        Promotions = Promotions.PromotionTwo,
+                        UnitPrice = 55
+                    },
+                    new BasketItem
+                    {
+                        ItemSKU = "D",
+                        Promotions = Promotions.PromotionTwo,
+                        UnitPrice = 55
+                    }
+                }
+            };
+
+            // Act
+            var result = await _sut.Handle(request, CancellationToken.None);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal((decimal)82.5, result.TotalCost);
 
         }
     }

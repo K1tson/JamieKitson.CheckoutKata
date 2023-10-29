@@ -36,7 +36,21 @@ namespace CheckoutKata.Core.Helpers
 
         private static decimal CalculatePromotionTwo(IEnumerable<BasketItem> basketItems)
         {
-            return 0;
+            const decimal percentage = 25;
+            var unitPrice = basketItems.First().UnitPrice;
+            var costPerTwoUnits = unitPrice * 2;
+            decimal total = 0;
+            var quotient = Math.DivRem(basketItems.Count(), 2, out var remainder);
+
+            for (var i = 0; i < quotient; i++)
+            {
+                decimal percentSavings = percentage / 100 * costPerTwoUnits;
+                total += costPerTwoUnits - percentSavings;
+            }
+
+            total += remainder * 55;
+
+            return total;
         }
 
     }
