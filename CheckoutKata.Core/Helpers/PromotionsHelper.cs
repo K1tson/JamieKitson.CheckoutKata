@@ -24,7 +24,14 @@ namespace CheckoutKata.Core.Helpers
 
         private static decimal CalculatePromotionOne(IEnumerable<BasketItem> basketItems)
         {
-            return 0;
+            var unitPrice = basketItems.First().UnitPrice;
+            decimal total = 0;
+            var quotient = Math.DivRem(basketItems.Count(), 3, out var remainder);
+
+            total += remainder * unitPrice;
+            total += quotient * 40;
+
+            return total;
         }
 
         private static decimal CalculatePromotionTwo(IEnumerable<BasketItem> basketItems)

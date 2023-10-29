@@ -1,4 +1,5 @@
 ﻿using CheckoutKata.Core.Data.Repository;
+using CheckoutKata.Core.Helpers;
 using CheckoutKata.Core.Models;
 using MediatR;
 
@@ -28,7 +29,7 @@ public class AddItemsToBasketHandler : IRequestHandler<AddItemsToBasketRequest, 
     {
         var groupedItems = basketItems.GroupBy(x => x.ItemSKU);
 
-        return 0;
+        return groupedItems.Sum(groupedSkuItems => PromotionsHelper.CalculatePromotions(groupedSkuItems.ToList()));
     }
 }
 

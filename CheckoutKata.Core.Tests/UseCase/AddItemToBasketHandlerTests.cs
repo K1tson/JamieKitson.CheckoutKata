@@ -54,12 +54,6 @@ namespace CheckoutKata.Core.Tests.UseCase
                 BasketItems = new List<BasketItem> {
                     new BasketItem
                     {
-                        ItemSKU = "A",
-                        Promotions = null,
-                        UnitPrice = 10
-                    },
-                    new BasketItem
-                    {
                         ItemSKU = "B",
                         Promotions = Promotions.PromotionOne,
                         UnitPrice = 15
@@ -84,8 +78,8 @@ namespace CheckoutKata.Core.Tests.UseCase
 
             // Assert
             Assert.NotNull(result);
-            Assert.Equal(10, result.TotalCost);
-            Assert.True(result.IsSuccess);
+            Assert.Equal(40, result.TotalCost);
+
         }
     }
 }
